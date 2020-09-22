@@ -8,7 +8,7 @@ public class MediaAritmetica_NextLevel {
         final java.util.Scanner nota = new Scanner(System.in);
         
         // Primeiro bimestre.
-        double prova_b1, projeto_b1, exercicio_b1, mooc_b1, media_b1;
+        double prova_b1, projeto_b1, exercicio_b1, mooc_b1;
         System.out.print("Digite a nota da prova do primeiro bimestre: ");
         prova_b1 = nota.nextFloat();
         
@@ -22,7 +22,7 @@ public class MediaAritmetica_NextLevel {
         mooc_b1 = nota.nextFloat();
 
         // Segundo bimestre.
-        double prova_b2, projeto_b2, exercicio_b2, mooc_b2, media_b2;
+        double prova_b2, projeto_b2, exercicio_b2, mooc_b2;
         System.out.print("Digite a nota da prova do segundo bimestre: ");
         prova_b2 = nota.nextFloat();
         
@@ -36,7 +36,7 @@ public class MediaAritmetica_NextLevel {
         mooc_b2 = nota.nextFloat();
 
         // Terceiro bimestre.
-        double prova_b3, projeto_b3, exercicio_b3, mooc_b3, media_b3;
+        double prova_b3, projeto_b3, exercicio_b3, mooc_b3;
         System.out.print("Digite a nota da prova do terceiro bimestre: ");
         prova_b3 = nota.nextFloat();
         
@@ -50,7 +50,7 @@ public class MediaAritmetica_NextLevel {
         mooc_b3 = nota.nextFloat();
 
         // Quarto bimestre.
-        double prova_b4, projeto_b4, exercicio_b4, mooc_b4, media_b4;
+        double prova_b4, projeto_b4, exercicio_b4, mooc_b4;
         System.out.print("Digite a nota da prova do quarto bimestre: ");
         prova_b4 = nota.nextFloat();
         
@@ -66,7 +66,7 @@ public class MediaAritmetica_NextLevel {
         nota.close();
 
         // Soma das notas bimestrais.
-        double prova_s, projeto_s, exercicio_s, mooc_s, media_s;
+        double prova_s, projeto_s, exercicio_s, mooc_s;
         prova_s     = (prova_b1+prova_b2+prova_b3+prova_b4);
         projeto_s   = (projeto_b1+projeto_b2+projeto_b3+projeto_b4);
         exercicio_s = (exercicio_b1+exercicio_b2+exercicio_b3+exercicio_b4);
