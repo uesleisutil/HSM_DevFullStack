@@ -1,99 +1,65 @@
-// Programa para a média aritmética.
-
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
-
 public class MediaAritmetica_NextLevel_2 {
-    public static void main(final String args[]) {
 
-        final java.util.Scanner nota = new Scanner(System.in);
-        
-        // Primeiro bimestre.
-        double prova_b1, projeto_b1, exercicio_b1, mooc_b1;
-        System.out.print("Digite a nota da prova do primeiro bimestre: ");
-        prova_b1 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do projeto do primeiro bimestre : ");
-        projeto_b1 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do exercício do primeiro bimestre: ");
-        exercicio_b1 = nota.nextFloat();
-       
-        System.out.print("Digite a nota do MOOC do primemiro bimestre: ");
-        mooc_b1 = nota.nextFloat();
+	public static void main(String[] args) {
 
-        // Segundo bimestre.
-        double prova_b2, projeto_b2, exercicio_b2, mooc_b2;
-        System.out.print("Digite a nota da prova do segundo bimestre: ");
-        prova_b2 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do projeto do segundo bimestre : ");
-        projeto_b2 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do exercício do segundo bimestre: ");
-        exercicio_b2 = nota.nextFloat();
-       
-        System.out.print("Digite a nota do MOOC do segundo bimestre: ");
-        mooc_b2 = nota.nextFloat();
+	List <Float> medias_dos_alunos = new ArrayList<>();
+	List <String> resultado_alunos = new ArrayList<>();
+	int alunos_aprovados = 0, alunos_reprovados = 0, alunos_af = 0;
 
-        // Terceiro bimestre.
-        double prova_b3, projeto_b3, exercicio_b3, mooc_b3;
-        System.out.print("Digite a nota da prova do terceiro bimestre: ");
-        prova_b3 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do projeto do terceiro bimestre : ");
-        projeto_b3 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do exercício do terceiro bimestre: ");
-        exercicio_b3 = nota.nextFloat();
-       
-        System.out.print("Digite a nota do MOOC do terceiro bimestre: ");
-        mooc_b3 = nota.nextFloat();
+	Scanner input = new Scanner(System.in);
+	System.out.println("Alunos na turma?");
+	int qtd_alunos = input.nextInt();
 
-        // Quarto bimestre.
-        double prova_b4, projeto_b4, exercicio_b4, mooc_b4;
-        System.out.print("Digite a nota da prova do quarto bimestre: ");
-        prova_b4 = nota.nextFloat();
+	Scanner input_notas = new Scanner(System.in);
+	for (int i = 1; i <= qtd_alunos; i++){
+		
+		float prova = 0;
+		float projeto = 0;
+		float lista = 0;
+	
+        System.out.println("Nota prova aluno "+ i + "?");  
+        prova = Float.parseFloat(input_notas.nextLine());
+        System.out.println("Nota projeto aluno "+ i + "?");  
+        projeto = Float.parseFloat(input_notas.nextLine());
+        System.out.println("Nota lista de exercícios aluno "+ i + "?");  
+        lista = Float.parseFloat(input_notas.nextLine());
         
-        System.out.print("Digite a nota do projeto do quarto bimestre : ");
-        projeto_b4 = nota.nextFloat();
+        int   peso_prova = 5, peso_projeto = 3, peso_lista = 2;
+        float media_aluno;
+        media_aluno = (prova * peso_prova + projeto * peso_projeto + lista * peso_lista) / (peso_projeto + peso_prova + peso_lista);
+        medias_dos_alunos.add(media_aluno);
         
-        System.out.print("Digite a nota do exercício do quarto bimestre: ");
-        exercicio_b4 = nota.nextFloat();
-       
-        System.out.print("Digite a nota do MOOC do quarto bimestre: ");
-        mooc_b4 = nota.nextFloat();
-
-        nota.close();
-
-        // Soma das notas bimestrais.
-        double prova_s, projeto_s, exercicio_s, mooc_s;
-        prova_s     = (prova_b1+prova_b2+prova_b3+prova_b4);
-        projeto_s   = (projeto_b1+projeto_b2+projeto_b3+projeto_b4);
-        exercicio_s = (exercicio_b1+exercicio_b2+exercicio_b3+exercicio_b4);
-        mooc_s      = (mooc_b1+mooc_b2+mooc_b3+mooc_b4);
-
-        // Atribui os pesos referentes a cada atividade.
-        double prova, projeto, exercicio, mooc;
-        prova     = prova_s*3;
-        projeto   = projeto_s*3;
-        exercicio = exercicio_s*2;
-        mooc      = mooc_s*3;
-        
-        // Média semestral com os pesos de cada atividade.
-        double media;
-        media = ((prova)+(projeto)+(exercicio)+(mooc))/4;
-
-        if(media <= 8){
-            System.out.println("O aluno foi REPROVADO. ");
-            double prova_final;
-            prova_final = 10-media; 
-            System.out.println("A media final do aluno é: " + media + " pontos.");
-            System.out.print("O aluno precisa de " + prova_final + " pontos na prova final");          
+        if (media_aluno < 5) {
+        	resultado_alunos.add("Reprovado");
+        	alunos_reprovados =+ 1;
         }
-        else
-        {
-            System.out.println("O aluno foi APROVADO. ");
-            System.out.print("A media final do aluno é: " + media + " pontos.");
+        else if (media_aluno <= 7.9) {
+        	resultado_alunos.add("Avaliação Final");
+        	alunos_af =+ 1;
         }
+        else {
+        	resultado_alunos.add("Aprovado");
+        	alunos_aprovados =+ 1;
+        }   
     }
+    input.close();
+    input_notas.close();
+	System.out.println("Maior nota: "+ Collections.max(medias_dos_alunos));
+	System.out.println("Menor nota: "+ Collections.min(medias_dos_alunos));
+	float media_turma;
+	float soma_notas = 0;
+	
+	for (float nota : medias_dos_alunos) {
+		soma_notas =+ nota;
+	}
+	media_turma = soma_notas/qtd_alunos;
+	System.out.println("Média da turma: "+ media_turma);
+	System.out.println("Alunos aprovados: "+ alunos_aprovados);
+	System.out.println("Alunos com avaliação final: "+ alunos_af);
+	System.out.println("Alunos reprovados: "+ alunos_reprovados);
+		}
 }
