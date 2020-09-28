@@ -2,7 +2,7 @@
 
 import java.util.Scanner;
 
-public class MediaAritmetica_NextLevel {
+public class MediaAritmetica_NextLevel_2 {
     public static void main(final String args[]) {
 
         final java.util.Scanner nota = new Scanner(System.in);
