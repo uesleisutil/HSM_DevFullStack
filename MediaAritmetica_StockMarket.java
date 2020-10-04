@@ -1,99 +1,49 @@
-// Programa para a média aritmética.
-
 import java.util.Scanner;
-
 public class MediaAritmetica_StockMarket {
-    public static void main(final String args[]) {
+        public static void main(String[] args) {
+        Scanner scan    = new Scanner(System.in);
+        int[][] vetor1  = new int[4][7];
+        int daily_value = 0, mean_month = 0;
+        double di     v = 0, mean_week = 0;
 
-        final java.util.Scanner nota = new Scanner(System.in);
-        
-        // Primeiro bimestre.
-        double prova_b1, projeto_b1, exercicio_b1, mooc_b1;
-        System.out.print("Digite a nota da prova do primeiro bimestre: ");
-        prova_b1 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do projeto do primeiro bimestre : ");
-        projeto_b1 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do exercício do primeiro bimestre: ");
-        exercicio_b1 = nota.nextFloat();
-       
-        System.out.print("Digite a nota do MOOC do primemiro bimestre: ");
-        mooc_b1 = nota.nextFloat();
-
-        // Segundo bimestre.
-        double prova_b2, projeto_b2, exercicio_b2, mooc_b2;
-        System.out.print("Digite a nota da prova do segundo bimestre: ");
-        prova_b2 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do projeto do segundo bimestre : ");
-        projeto_b2 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do exercício do segundo bimestre: ");
-        exercicio_b2 = nota.nextFloat();
-       
-        System.out.print("Digite a nota do MOOC do segundo bimestre: ");
-        mooc_b2 = nota.nextFloat();
-
-        // Terceiro bimestre.
-        double prova_b3, projeto_b3, exercicio_b3, mooc_b3;
-        System.out.print("Digite a nota da prova do terceiro bimestre: ");
-        prova_b3 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do projeto do terceiro bimestre : ");
-        projeto_b3 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do exercício do terceiro bimestre: ");
-        exercicio_b3 = nota.nextFloat();
-       
-        System.out.print("Digite a nota do MOOC do terceiro bimestre: ");
-        mooc_b3 = nota.nextFloat();
-
-        // Quarto bimestre.
-        double prova_b4, projeto_b4, exercicio_b4, mooc_b4;
-        System.out.print("Digite a nota da prova do quarto bimestre: ");
-        prova_b4 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do projeto do quarto bimestre : ");
-        projeto_b4 = nota.nextFloat();
-        
-        System.out.print("Digite a nota do exercício do quarto bimestre: ");
-        exercicio_b4 = nota.nextFloat();
-       
-        System.out.print("Digite a nota do MOOC do quarto bimestre: ");
-        mooc_b4 = nota.nextFloat();
-
-        nota.close();
-
-        // Soma das notas bimestrais.
-        double prova_s, projeto_s, exercicio_s, mooc_s;
-        prova_s     = (prova_b1+prova_b2+prova_b3+prova_b4);
-        projeto_s   = (projeto_b1+projeto_b2+projeto_b3+projeto_b4);
-        exercicio_s = (exercicio_b1+exercicio_b2+exercicio_b3+exercicio_b4);
-        mooc_s      = (mooc_b1+mooc_b2+mooc_b3+mooc_b4);
-
-        // Atribui os pesos referentes a cada atividade.
-        double prova, projeto, exercicio, mooc;
-        prova     = prova_s*3;
-        projeto   = projeto_s*3;
-        exercicio = exercicio_s*2;
-        mooc      = mooc_s*3;
-        
-        // Média semestral com os pesos de cada atividade.
-        double media;
-        media = ((prova)+(projeto)+(exercicio)+(mooc))/4;
-
-        if(media <= 8){
-            System.out.println("O aluno foi REPROVADO. ");
-            double prova_final;
-            prova_final = 10-media; 
-            System.out.println("A media final do aluno é: " + media + " pontos.");
-            System.out.print("O aluno precisa de " + prova_final + " pontos na prova final");          
+        for(int l= 0; l < vetor1.length; l++) {
+            for (int c =0 ; c < vetor1[l].length; c ++) {
+                daily_value += 1;	
+                System.out.println("O valor das ações do dia"+ daily_value);
+                vetor1[l][c] = scan.nextInt();
+                mean_month = (vetor1[l][c] + mean_month);
+            }
+            System.out.print("\n");
         }
-        else
-        {
-            System.out.println("O aluno foi APROVADO. ");
-            System.out.print("A media final do aluno é: " + media + " pontos.");
+
+        for(int l= 0; l < vetor1.length; l++) {
+            for (int c= 0; c < vetor1[l].length; c ++) {
+                System.out.print(vetor1[l][c] + " ");
+                }
+            System.out.print("\n");
+            }
+
+        int max_value = 0;
+        for(int l= 0; l < vetor1.length; l++) {
+            for (int c= 0; c < vetor1[l].length; c ++) {
+                if (vetor1[l][c] > max_value) {
+                    max_value = vetor1[l][c];
+                }
+            }
         }
+
+        int min_value = max_value;
+        for(int l= 0; l < vetor1.length; l++) {
+            for (int c= 0; c < vetor1[l].length; c ++) {
+                if (vetor1[l][c] < min_value) {
+                    min_value = vetor1[l][c];
+                }
+            }
+        }
+        mean_week = mean_month / 4;
+        System.out.println("Ação de max_value valor na mean_weekana = "+ max_value);
+        System.out.println("Ação de min_value valor na mean_weekana = "+ min_value);
+        System.out.println("Media das ações no Mês= "+ mean_month);
+        System.out.println("Média das ações por mean_weekana: "+ mean_week);
     }
 }
