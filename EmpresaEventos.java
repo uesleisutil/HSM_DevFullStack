@@ -139,9 +139,9 @@ public class Ex4 {
 
 		public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Responsavel resp1 = new Responsavel("Carlos Miranda","(11)99999-8888",50);
-		Palestrante palestrante1 = new Palestrante("Carlão", "carlos@carlos.com", 100);
-		Palestrante palestrante2 = new Palestrante("Carlinhos", "carlos1900@carlos.com", 150);
+		Responsavel resp1 = new Responsavel("João ","(11)99999-8888",50);
+		Palestrante palestrante1 = new Palestrante("José", "joao@joao.com", 100);
+		Palestrante palestrante2 = new Palestrante("Carlos", "carlos1900@carlos.com", 150);
 		Palestra palestra1 = new Palestra("Programação Java", "9h", palestrante1, "Intro HSM", 
 				5);
 		Palestra palestra2 = new Palestra("Programação JavaScript", "15h", palestrante2, "Intro HSM2", 
@@ -151,7 +151,7 @@ public class Ex4 {
 		palestras.add(palestra1);
 		palestras.add(palestra2);
 		
-		Evento meu_evento = new Evento("HSM-FullStack Básico", resp1, "28/06/2020",
+		Evento meu_evento = new Evento("FullStack", resp1, "05/10/2020",
 				"30/06/2020", palestras);
 		
 		meu_evento.gasto_por_palestra();
