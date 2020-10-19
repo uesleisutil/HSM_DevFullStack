@@ -6,25 +6,25 @@
         <script>
             var combustivel = prompt("Digite o código do Combustível: (1) Álcool ou (2) Gasolina:");
 
-            if(combustivel <= 2){
+            if(combustivel == 1 || combustivel == 2){
                 if(combustivel == 1){              
                 document.write("Código: "+combustivel+". Álcool: R$3,16/l." );
-                var escolha = "álcool";
                 }else{
                     document.write("Código:"+combustivel+". Gasolina: R$4.19/l." );
-                    var escolha = "gasolina";
                 }
             }else{
-                while(combustivel <= 2) {
-                    document.write("Código inexistente. Tente novamente." );
-                }
+                while(combustivel > 2){
+                    document.write("Código inválido. Tente novamente." );               
+                    var combustivel = prompt("Digite o código do Combustível: (1) Álcool ou (2) Gasolina:");  
+                } 
             }
-
             var litros = prompt("Digite quantos litros:");
             if(combustivel == 1){
+                var escolha = "álcool";
                 document.write(litros+" litros de "+escolha);
                 document.write("Total a ser pago: "+litros*3.16);
             }else{
+                var escolha = "gasolina";
                 document.write(litros+" litros de "+escolha);
                 document.write("Total a ser pago: "+litros*4.19);
             }
