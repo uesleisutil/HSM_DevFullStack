@@ -1,40 +1,19 @@
-alert("Olá, Seja bem vindo!");
+var salario = prompt("Digite o seu salário:");
+var plano_de_aumento = prompt("Digite o seu plano de aumento - A(10%) - B(15%) - C(20%)");
+var plano_a = 10;
+var plano_b = 15;
+var plano_c = 20;
 
-var resposta = prompt("Deseja Participar da Pesquisa?");
-var qtd_entrevistados = 0;
-var menos_que_dez = 0;
-var deDezAQuinze = 0;
-var maisDeQuinze = 0;
+var novo_salario;
 
-do{ 
+switch (plano_de_aumento){
+    case 'a' : novo_salario = parseFloat(salario) + parseFloat((salario*plano_a)/100);
+    break;
+    case 'b' : novo_salario = parseFloat(salario) + parseFloat((salario*plano_b)/100);
+    break;
+    case 'c' : novo_salario = parseFloat(salario) + parseFloat((salario*plano_c)/100);
+    break;
+    default: prompt("Digite um valor válido");
+};
 
-    var qtd_visitas = prompt("Quantas vezes você utilizou o Restaurante Universitário neste mês?");
-
-    if(qtd_visitas < 10){
-        menos_que_dez++;
-    }else if(qtd_visitas >= 10 && qtd_visitas <=15){
-        deDezAQuinze++;
-    }else if(qtd_visitas > 15){
-        maisDeQuinze++;
-    }
-
-    var resposta = prompt("Deseja Participar da Pesquisa?");
-
-    qtd_entrevistados++
-}while(resposta == "sim"){};
-
-var total_visitas = (menos_que_dez+deDezAQuinze+maisDeQuize);
-
-var porcentagem_menos_que_dez = (menos_que_dez / qtd_entrevistados)*100;
-var porcentagem_de_dez_a_quinze = (deDezAQuinze / qtd_entrevistados)*100;
-var porcentagem_maisDeQuinze = (maisDeQuinze / qtd_entrevistados)*100;
-
-document.write("O percentual de alunos que utilizaram menos de 10 vezes o restaurante é de "+porcentagem_menos_que_dez.toFixed(1)+"%.");
-document.write("<br>");
-document.write("O percentual de alunos que utilizaram entre 10 e 15 vezes é de "+porcentagem_de_dez_a_quinze.toFixed(1)+"%.");
-document.write("<br>");
-document.write("O percentual de alunos que utilizaram o restaurante acima de 15 vezes é de "+porcentagem_maisDeQuinze.toFixed(1)+"%.");
-document.write("<br>");
-document.write("A quantidade de alunos entrevistados é de: "+qtd_entrevistados);
-document.write("<br>")
-        
+alert("O valor do seu novo salário é R$ "+novo_salario+".");
