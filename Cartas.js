@@ -1,17 +1,45 @@
-var nome   = prompt("Nome do aluno:");
-var altura = prompt("Altura do aluno:");
-var peso   = prompt("Peso do aluno:");
-var imc    = peso/(altura*altura);
+function criaBaralho(){
+    let valores = [];
+    let cartas_simbolos = ["Às", "Valete", "Dama", "Rei"]
+    let nipes = ['copas', 'espadas', 'ouros', 'paus'];
+    let baralho = []
 
-if(imc <= 18.5){
-    document.write("Resultado: Seu IMC é:"+imc+". Você está abaixo do peso. Classificação: Magreza Grau 0");
-    }else if(imc >18.5 && imc< 24.9){
-    document.write(" Resultado: Seu IMC é:"+imc+". Seu peso está normal Classificação: Normal Grau 0");
-}else if(imc >25 && imc < 29.9){
-    alert("Resultado: Seu IMC é:"+imc+". Você está acima do peso. Classificação: Sobrepeso Grau 1 ");
-}else if (imc>30 && imc< 39.9) {
-    alert(" Resultado: Seu IMC é:"+imc+". Você está acima do peso \nClassificação: Obesidade\nGrau 2 ");
-}else if(imc >40.0) {
-    alert("Resultado: Seu IMC é de:"+imc+". Você está acima do peso \nClassificação: Obesidade Grave\nGrau 3 ");
+    for (let i = 2; i<11 ;i++){
+        valores.push(i)
+    }
+    
+    for(let j in cartas_simbolos){
+        valores.push(cartas_simbolos[j])
+    }
 
+    for (let k in nipes){
+        for (l in valores){
+            baralho.push(valores[l] + " de "+nipes[k])
+        }
+    }
+
+    return baralho;
 }
+
+function exibir(){
+    baralho = criaBaralho()
+    
+    adivinha = true;
+    while (adivinha){
+
+        index_carta = Math.floor(Math.random()*baralho.length)
+        alert(baralho[index_carta])
+        resp = prompt("Acertei a carta?");
+        baralho.splice(index_carta,1)
+        if (resp.toLowerCase() == "sim"){
+            adivinha = false;
+        }
+        if (baralho.length == 0){
+            adivinha = false;
+            alert("Acabaram as cartas!")
+        }
+
+    }
+} 
+
+adivinha()
